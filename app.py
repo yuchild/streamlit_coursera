@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import datetime as dt
 
 st.title('Sentiment Analysis of Tweets about US Airlines')
 st.sidebar.title('Sentiment Analysis of Tweets about US Airlines')
@@ -56,5 +57,52 @@ if not st.sidebar.checkbox('Hide', True):
         st.plotly_chart(fig)
     
 
-    
+# Plot map
+st.sidebar.subheader('When and where are users tweeting from?')
+hour = st.sidebar.slider("Hour of day"
+                         , min_value = 0
+                         , max_value =23
+                        )
+modified_data = data[data['tweet_created'].dt.hour == hour]
+if not st.sidebar.checkbox("Close", True, key = '1'):
+    st.markdown('### Tweet locations based on the time of day')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
