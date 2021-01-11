@@ -58,6 +58,15 @@ if not st.sidebar.checkbox('Hide', True):
     
 
 # Plot map
+COORDS_URL = ('./data/coords.csv')
+@st.cache(persist=True)
+def load_coords():
+    data_coords = pd.read_csv(COORDS_URL)
+    return data_coords
+
+data_coords = load_coords()
+st.map(data_coords)
+
 st.sidebar.subheader('When and where are users tweeting from?')
 hour = st.sidebar.slider("Hour of day"
                          , min_value = 0
